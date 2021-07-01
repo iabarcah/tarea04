@@ -110,7 +110,7 @@ int main(int argc, char *argv[])
 		sumaParcial += std::sin((numbersToSum[idx]))*std::cos((numbersToSum[idx]));
 	}
 	//mpi::scatter(world, dataToShare, dataByProc, ntotalByProc, senderRank);
-	mpi::scatter(world,numbersToSum,sumaParcial,ntotalByProc,senderRank);
+	mpi::scatter(world,numbersToShare,sumaParcial,ntotalByProc,senderRank);
 	// ###############Completar código############
 	//Los procesos envian sus resultados parciales para que el proceso 0 haga la reducción
 	float sumaParalela = 0.0;
