@@ -17,7 +17,7 @@ LDLIBS = -lm -lpthread $(BOOST_LIBS)
 
 INCLUDES =-I. -I./include $(BOOST_INCLUDE)
 
-CPPFLAGS =-std=c++17  -Wno-deprecated $(INTRINSICS) 
+CPPFLAGS =-std=c++17  -Wno-deprecated $(INTRINSICS) -g
 
 
 all: $(TARGET)
