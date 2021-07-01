@@ -28,7 +28,7 @@ void uso(std::string pname)
 
 std::int min(const std::int &lhs, const std::int &rhs)
 {
-  return lhs.size() < rhs.size() ? lhs : rhs;
+  return lhs < rhs ? lhs : rhs;
 }
 
 int main(int argc, char *argv[])
