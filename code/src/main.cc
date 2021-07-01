@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
 	// defininicón de mpi::scatter 
 	//   https://www.boost.org/doc/libs/1_71_0/doc/html/boost/mpi/scatter.html
 	//mpi::scatter(world, dataToShare, dataByProc, ntotalByProc, senderRank);
-	mpi::scatter(world,numbersToSum,ntotalByProc,senderRank);
+	
 	//Cada procesa realiza su suma parcial
 	float sumaParcial = 0.0;
 	
@@ -111,7 +111,7 @@ int main(int argc, char *argv[])
 		
 	}
 	//mpi::scatter(world, dataToShare, dataByProc, ntotalByProc, senderRank);
-	
+	mpi::scatter(world,numbersToSum,ntotalByProc,senderRank);
 	// ###############Completar código############
 	//Los procesos envian sus resultados parciales para que el proceso 0 haga la reducción
 	float sumaParalela = 0.0;
