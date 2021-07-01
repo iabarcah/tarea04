@@ -116,10 +116,10 @@ int main(int argc, char *argv[])
 	//Los procesos envian sus resultados parciales para que el proceso 0 haga la reducción
 	float sumaParalela = 0.0;
 	// definición de mpi::reduce
-	if (world.rank() == 0) {
+	if (world.rank() == senderRank) {
     	int minimum;
 		bool var= comp(0,10000);
-    	reduce(world, numbersToSum,sumaParalela, std::plus<float>() ,0);
+    	reduce(world, numbersToSum,sumaParalela, std::plus<float>() ,senderRank);
     	std::cout << "The sum value is " << sumaParalela << std::endl;
   } else {
     	//reduce(world, my_number, mpi::minimum<int>(), 0);
