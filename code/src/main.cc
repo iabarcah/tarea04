@@ -105,7 +105,7 @@ int main(int argc, char *argv[])
 	
 	//Cada procesa realiza su suma parcial
 	float sumaParcial = 0.0;
-	mpi::scatter(world,numbersToSum,sumaParcial,0);
+	mpi::scatter(world,numbersToSum,sumaParcial,senderRank);
 	for(size_t idx = 0; idx < ntotalByProc; idx++){
 		sumaParcial += std::sin((numbersToSum[idx]))*std::cos((numbersToSum[idx]));
 	}
