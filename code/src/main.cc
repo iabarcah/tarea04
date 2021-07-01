@@ -115,7 +115,7 @@ int main(int argc, char *argv[])
 	// definición de mpi::reduce
 	if (world.rank() == 0) {
     	int minimum;
-		auto var= comp(0,10000)
+		auto var= comp(0,10000);
     	mpi::reduce(world, sumaParcial, var,sumaParalela, 0);
     	std::cout << "The minimum value is " << minimum << std::endl;
   } else {
