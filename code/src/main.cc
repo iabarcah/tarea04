@@ -107,7 +107,7 @@ int main(int argc, char *argv[])
 	// definición de mpi::reduce
 	if (world.rank() == 0) {
     	int minimum;
-    	reduce(world, sumaParcial, 1, sumaParalela, 0);
+    	reduce(world, numbersToSum, sumaParcial, sumaParalela, 0);
     	std::cout << "The minimum value is " << minimum << std::endl;
   } else {
     	//reduce(world, my_number, mpi::minimum<int>(), 0);
