@@ -26,11 +26,14 @@ void uso(std::string pname)
 	exit(EXIT_FAILURE);
 }
 
-std::int min(const std::int &lhs, const std::int &rhs)
+/*std::int min(const std::int &lhs, const std::int &rhs)
 {
   return lhs < rhs ? lhs : rhs;
+}*/
+bool comp(int a, int b)
+{
+    return (a < b);
 }
-
 int main(int argc, char *argv[])
 {
 	mpi::timer T;
@@ -112,7 +115,8 @@ int main(int argc, char *argv[])
 	// definición de mpi::reduce
 	if (world.rank() == 0) {
     	int minimum;
-    	mpi::reduce(world, sumaParcial, std::min,sumaParalela, 0);
+		auto var= comp(0,10000)
+    	mpi::reduce(world, sumaParcial, var,sumaParalela, 0);
     	std::cout << "The minimum value is " << minimum << std::endl;
   } else {
     	//reduce(world, my_number, mpi::minimum<int>(), 0);
