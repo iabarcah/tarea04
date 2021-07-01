@@ -116,7 +116,7 @@ int main(int argc, char *argv[])
 	if (world.rank() == 0) {
     	int minimum;
 		bool var= comp(0,10000);
-    mpi::reduce(world, numbersToSum, mpi::sum,sumaParalela, 0);
+    mpi::reduce(world, numbersToSum, MPI_SUM,sumaParalela, 0);
     	std::cout << "The sum value is " << sumaParalela << std::endl;
   } else {
     	//reduce(world, my_number, mpi::minimum<int>(), 0);
