@@ -116,7 +116,7 @@ int main(int argc, char *argv[])
 	if (world.rank() == 0) {
     	int minimum;
 		bool var= comp(0,10000);
-    	boost::mpi::reduce(world, sumaParcial, var,sumaParalela, 0);
+    	boost::mpi::all_reduce(world, sumaParcial, var,sumaParalela, 0);
     	std::cout << "The minimum value is " << minimum << std::endl;
   } else {
     	//reduce(world, my_number, mpi::minimum<int>(), 0);
