@@ -101,10 +101,10 @@ int main(int argc, char *argv[])
 	int senderRank = 0;
 	// defininicón de mpi::scatter 
 	//   https://www.boost.org/doc/libs/1_71_0/doc/html/boost/mpi/scatter.html
-	float sumaParcial = 0.0;
-	mpi::scatter(world,numbersToSum,sumaParcial,0);
+
+	mpi::scatter(world,numbersToSum,senderRank,0);
 	//Cada procesa realiza su suma parcial
-	
+	float sumaParcial = 0.0;
 	for(size_t idx = 0; idx < ntotalByProc; idx++){
 		sumaParcial += std::sin((numbersToSum[idx]))*std::cos((numbersToSum[idx]));
 	}
@@ -113,14 +113,14 @@ int main(int argc, char *argv[])
 	//Los procesos envian sus resultados parciales para que el proceso 0 haga la reducción
 	float sumaParalela = 0.0;
 	// definición de mpi::reduce
-	/*if (world.rank() == 0) {
+	if (world.rank() == 0) {
     	int minimum;
 		bool var= comp(0,10000);
-    	mpi::reduce(world, sumaParcial, var,sumaParalela, 0);
+    mpi::reduce(world, sumaParcial, var,sumaParalela, 0);
     	std::cout << "The minimum value is " << minimum << std::endl;
   } else {
     	//reduce(world, my_number, mpi::minimum<int>(), 0);
-  }*/
+  }
 	//  https://www.boost.org/doc/libs/1_71_0/doc/html/boost/mpi/reduce.html
 
 
